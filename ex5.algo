@@ -1,0 +1,38 @@
+procédure pgcd(ch:chaîne)
+début
+    ouvrir(ch, f, "r") 
+    tant que non fin_fichier(f)  faire
+        lire_ligne(f, e)
+        e = e
+        x = 0
+        tant que long(e)>0  faire
+            m[x] = it(e)
+            x = x + 1
+        fin_tant_que
+    fin_tant_que
+    pour i de 1 à x-1 faire
+        pour j de i+1 à i-1 faire
+            m[i,j] <-- pgcd(m[i-1,j], m[i,j+1])
+        fin_pour
+    fermer(f)
+fin
+fonction it(@e : chaîne) : entier
+début
+    si pos("#", e) =-1 alors
+        retourner entier(e)
+        e = ""
+    sinon
+        i = pos("#", e)
+        retourner entier(sous_chaine(e,0, i-1))
+        e = sous_chaine(e,i, long(e))
+    fin_si
+fin
+fonction pgcd(a, b : entier) : entier
+début
+    tant que b != 0 faire
+        t = b
+        b = a mod b
+        a = t
+    fin_tant_que
+    retourner a
+fin
