@@ -1,0 +1,25 @@
+procédure transferer(m,l,c)
+    début
+        ouvrir("source.txt", f, "r") 
+        pour i de 0 a l-1 faire 
+            lire_ligne(f, ch) 
+            pour j de 0 a c-1 faire
+                si pos(';', ch)≠ -1 alors
+                    m[i,j] <-- valeur(substr(ch, 0, pos(';', ch)))
+                    ch <-- substr(ch, pos(';', ch), len(ch))
+                sinon
+                    m[i,j] <-- 0
+                
+            fin pour
+                fermer(f)
+    fin
+
+procédure coder (m,l,c)
+    début
+        pour i de 0 a l-1 faire 
+            pour j de 0 a c-1 faire
+                
+            fin pour
+        fin pour
+        fermer(f)
+    fin
