@@ -1,0 +1,54 @@
+┌─────────────────────────────────────────────────┐
+│                 Nouveaux Types                  │
+├─────────────────────────────────────────────────┤
+│ tab = tableau de 19 maxi                        │
+| maxi  = enregistrement                          │
+│         max : entier                            │
+│         indice : entier                         │
+│ fin                                             │
+└─────────────────────────────────────────────────┘
+┌─────────────────────────────┬───────────────────┐
+│            Objet            │   Nature / Type   │
+├─────────────────────────────┼───────────────────┤
+│ t                           │ tab               │
+└─────────────────────────────┴───────────────────┘
+
+fonction Indice_max(m, nl,c) : entier
+début
+    indice <-- 0
+    max <-- M[0,c]
+    pour i de 1 a ML-1 faire
+        si M[i,c] > max alors
+            max <-- M[i,c]
+            indice <-- i
+        fin si
+    fin pour
+    retourner indice
+fin
+
+procédure placer_max(m,nl,nc,@t)
+début
+    pour j de 0 a nc-1 faire
+        t[j].max <-- m[Indice_max(m,nl,j),j]
+        t[j].indice <-- Indice_max(m,nl,j)
+    fin pour
+fin
+
+fonction verticalement_folttante(t,nc) : booleen
+début
+    
+    x <--0
+    b <-- vrai
+    tant que b faire
+        pour i de x a nc-1 faire
+            si t[x].indice = t[i].indice ou t[x].max = t[i].max alors
+                b <-- faux
+            fin si
+            sinon
+                x <-- x+1
+        fin pour
+    fin_tant_que
+        
+    retourner b
+    
+fin
