@@ -1,0 +1,30 @@
+######ex4######
+
+fonction dichotomie(t,k,g,d) : entier
+début
+    si g > d alors
+        retourner -1
+    sinon 
+        m <-- (g + d) div 2
+        si t[m] = k alors
+            retourner m
+        sinon si t[m] < k alors
+            retourner dichotomie(t, k, m + 1, d)
+        sinon
+            retourner dichotomie(t, k, g, m - 1)
+    fin si
+fin
+
+Procedure tri_Col(@m:mat,c,nl:entier)
+début
+    pour i de 1 à nl-1 faire
+        a <-- m[i][c]
+        j <-- i
+        tant que j<nl et a<m[j][c] faire
+            a <-- m[j][c]
+            j <-- j-1
+        fin_tant_que
+        m[j][c] <-- a
+    fin pour
+fin
+
